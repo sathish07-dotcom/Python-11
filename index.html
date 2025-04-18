@@ -7,106 +7,91 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <h1>Polymorphism in Python </h1>
 
-Polymorphism in Python refers to the ability of different objects to respond to the same method or function in different ways. It is one of the core concepts of Object-Oriented Programming (OOP) and literally means "many forms."
+<h3>Polymorphism in Python refers to the ability of different objects to respond to the same method or function in different ways. It is one of the core concepts of Object-Oriented Programming (OOP) and literally means "many forms."
+</h3>
+<div class="div">
+    <h2>Types of Polymorphism in Python:</h2>
+<li>Duck Typing</li>
+<li>Operator Overloading</li>
+<li>Method Overriding (Runtime Polymorphism)</li>
+<li>Method Overloading (Simulated, as Python doesn't support it directly)</li>
+<h2> Duck Typing (Dynamic Typing)</h2>
+<li>“If it walks like a duck and quacks like a duck, it's a duck.”
+</li>
+<p>
+class Cat: <br>
+    def speak(self): <br>
+        print("Meow") <br> <br>
 
-🔸 Types of Polymorphism in Python:
-Duck Typing
+class Dog: <br>
+    def speak(self): <br>
+        print("Woof") <br> <br>
 
-Operator Overloading
+def animal_sound(animal): <br>
+    animal.speak() <br> <br>
 
-Method Overriding (Runtime Polymorphism)
+dog = Dog() <br>
+cat = Cat() <br> <br>
 
-Method Overloading (Simulated, as Python doesn't support it directly)
-
-1. Duck Typing (Dynamic Typing)
-“If it walks like a duck and quacks like a duck, it's a duck.”
-
-python
-Copy
-Edit
-class Cat:
-    def speak(self):
-        print("Meow")
-
-class Dog:
-    def speak(self):
-        print("Woof")
-
-def animal_sound(animal):
-    animal.speak()
-
-dog = Dog()
-cat = Cat()
-
-animal_sound(dog)  # Woof
+animal_sound(dog)  # Woof <br>
 animal_sound(cat)  # Meow
-2. Operator Overloading
-Python allows us to redefine the behavior of operators for user-defined classes.
+</p>
+<h2>Operator Overloading</h2>
+<li>Python allows us to redefine the behavior of operators for user-defined classes.
+</li>
+<p>
+class Point: <br>
+    def __init__(self, x, y): <br>
+        self.x = x <br>
+        self.y = y <br> <br>
 
-python
-Copy
-Edit
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+    def __add__(self, other): <br>
+        return Point(self.x + other.x, self.y + other.y) <br> <br>
 
-    def __add__(self, other):
-        return Point(self.x + other.x, self.y + other.y)
+    def __str__(self): <br>
+        return f"({self.x}, {self.y})" <br> <br>
 
-    def __str__(self):
-        return f"({self.x}, {self.y})"
-
-p1 = Point(1, 2)
-p2 = Point(3, 4)
+p1 = Point(1, 2) <br>
+p2 = Point(3, 4) <br>
 print(p1 + p2)  # (4, 6)
-3. Method Overriding (Runtime Polymorphism)
-Occurs when a subclass provides a specific implementation of a method already defined in its superclass.
+</p>
+<h2>Method Overriding (Runtime Polymorphism)</h2>
+<li>Occurs when a subclass provides a specific implementation of a method already defined in its superclass.
+</li>
+<p>
+class Animal: <br>
+    def speak(self): <br>
+        print("Animal speaks") <br> <br>
 
-python
-Copy
-Edit
-class Animal:
-    def speak(self):
-        print("Animal speaks")
+class Dog(Animal): <br>
+    def speak(self): <br>
+        print("Dog barks") <br> <br>
 
-class Dog(Animal):
-    def speak(self):
-        print("Dog barks")
+a = Animal() <br>
+d = Dog() <br> <br>
 
-a = Animal()
-d = Dog()
-
-a.speak()  # Animal speaks
+a.speak()  # Animal speaks <br>
 d.speak()  # Dog barks
-4. Method Overloading (Not directly supported)
-Python doesn’t support method overloading like Java/C++, but we can simulate it:
+</p>
+<h2>Method Overloading (Not directly supported)</h2>
+<li>Python doesn’t support method overloading like Java/C++, but we can simulate it:
+</li>
+<p>
+class Demo: <br>
+    def greet(self, name=None): <br>
+        if name: <br>
+            print(f"Hello {name}") <br>
+        else: <br>
+            print("Hello") <br> <br>
 
-python
-Copy
-Edit
-class Demo:
-    def greet(self, name=None):
-        if name:
-            print(f"Hello {name}")
-        else:
-            print("Hello")
-
-obj = Demo()
-obj.greet()         # Hello
+obj = Demo() <br>
+obj.greet()         # Hello <br>
 obj.greet("Sathish")  # Hello Sathish
-✅ Summary
+</p>
 
-Type	Description
-Duck Typing	Behavior checked at runtime, not strict types
-Operator Overloading	Same operator behaves differently for objects
-Method Overriding	Subclass overrides a method in parent class
-Method Overloading	Simulated via default/optional arguments
-If you want examples related to your own project (e.g., fitness tracker or resume screener), I can show how polymorphism can be used there too. Just say the word!
-
-
+</div>
 </body>
 </html>
 
